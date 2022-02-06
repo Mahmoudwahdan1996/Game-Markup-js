@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.control-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 169, 244, .9);
+    z-index: 2;
+}
+
+.control-button span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding: 15px 25px;
+    background-color: #f44336;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.container-info {
+    width: 1080px;
+    background-color: #f6f6f6;
+    margin: 20px auto 0;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 2px solid #2196f3;
+}
+
+.container-info .name {
+    width: 50%;
+    float: left;
+}
+
+.container-info .tries {
+    width: 50%;
+    float: right;    
+    text-align: center;
+}
+
+.momery-game-blocks{
+    width: 1100px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.momery-game-blocks.no-clicking{
+    pointer-events: none;
+}
+.momery-game-blocks .game-block {
+    flex: 1 0 200px;
+    height: 200px;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    margin: 0 10px 20px;
+}
+
+.momery-game-blocks .game-block .front {
+    background-color: #333;
+    line-height: 200px;
+}
+.momery-game-blocks .game-block .front::before{
+    content: "!";
+    font-size: 140px;
+    color: #fff;
+    font-weight: bold;
+}
+.momery-game-blocks .game-block .back {
+    background-color: #607d8b;
+    transform: rotateY(180deg);
+}
+
+.momery-game-blocks .game-block .back img {
+    width: 140px;
+    height: 140px;
+    margin-top:30px ;
+}
+
+
+.momery-game-blocks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f3;
+
+}
+
+.momery-game-blocks .game-block.is-flipped ,
+.momery-game-blocks .game-block.has-matched{
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
